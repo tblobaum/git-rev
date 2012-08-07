@@ -1,0 +1,25 @@
+{
+  "name" : "git-rev",
+  "version" : "0.1.0",
+  "description" : "description",
+  "main" : "index.js",
+  "bin" : {},
+  "directories" : {
+    "example" : "example"
+  },
+  "dependencies" : {},
+  "devDependencies" : {},
+  "scripts" : {},
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/tblobaum/git-rev.git"
+  },
+  "homepage" : "https://github.com/tblobaum/git-rev",
+  "keywords" : [ ],
+  "author" : {
+    "name" : "Thomas Blobaum",
+    "email" : "tblobaum@gmail.com",
+    "url" : "https://github.com/tblobaum/"
+  },
+  "license" : "MIT"
+}
