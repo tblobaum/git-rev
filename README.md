@@ -1,6 +1,6 @@
 # git-rev
 
-[![Build Status](https://secure.travis-ci.org/tblobaum/git-rev.png)](http://travis-ci.org/tblobaum/git-rev)
+access git revision state in node
 
 # Example
 
