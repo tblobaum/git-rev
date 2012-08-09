@@ -1,7 +1,7 @@
 {
   "name" : "git-rev",
   "version" : "0.1.0",
-  "description" : "description",
+  "description" : "get the current git commit hash, tag or branch in node",
   "main" : "index.js",
   "bin" : {},
   "directories" : {
