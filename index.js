@@ -17,7 +17,7 @@ module.exports = {
       _command('git rev-parse --abbrev-ref HEAD', cb)
     }
   , tag : function (cb) { 
-      _command('git describe --always --tag', cb)
+      _command('git describe --always --tag --abbrev=0', cb)
     }
   , log : function (cb) { 
       _command('git log --no-color --pretty=format:\'[ "%H", "%s", "%cr", "%an" ],\' --abbrev-commit', function (str) {
