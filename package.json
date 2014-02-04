@@ -7,7 +7,9 @@
   "directories" : {
     "example" : "example"
   },
-  "dependencies" : {},
+  "dependencies" : {
+    "async": "*"
+  },
   "devDependencies" : {},
   "scripts" : {},
   "repository" : {

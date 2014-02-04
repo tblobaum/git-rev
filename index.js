@@ -1,4 +1,7 @@
 var exec = require('child_process').exec
+  , async = require('async')
+  , delimiter = '|##|^'
+  , eol = '*||*}';
 
 function _command (cmd, cb) {
   exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
@@ -20,9 +23,13 @@ module.exports = {
       _command('git describe --always --tag --abbrev=0', cb)
     }
   , log : function (cb) { 
-      _command('git log --no-color --pretty=format:\'[ "%H", "%s", "%cr", "%an" ],\' --abbrev-commit', function (str) {
+      _command('git log --no-color --pretty=format:"%H'+delimiter+'%s'+delimiter+'%cr'+delimiter+'%an'+eol+'" --abbrev-commit', function (str) {
         str = str.substr(0, str.length-1)
-        cb(JSON.parse('[' + str + ']'))
+        async.mapSeries(str.split(eol), function(line, next) {
+          next(null, line.split(delimiter));
+        }, function(err, log) {
+          cb(log);
+        });
       })
     }
 }
