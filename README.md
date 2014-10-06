@@ -1,98 +1,85 @@
-# git-rev
+git-rev
+=======
 
-access git revision state in node
+Synchronously get the current git commit hash, tag or branch
 
-# Example
 
-``` js
-var git = require('git-rev')
+## Example
 
-git.short(function (str) {
-  console.log('short', str)
-  // => aefdd94
-})
+```js
+var git = require('git-rev-sync');
 
-git.long(function (str) {
-  console.log('long', str)
-  // => aefdd946ea65c88f8aa003e46474d57ed5b291d1
-})
+console.log(git.short());
+// 75bf4ee
 
-git.branch(function (str) {
-  console.log('branch', str)
-  // => master
-})
+console.log(git.long());
+// 75bf4eea9aa1a7fd6505d0d0aa43105feafa92ef
 
-git.tag(function (str) {
-  console.log('tag', str)
-  // => 0.1.0
-})
+console.log(git.branch());
+// master
+
+console.log(git.tag());
+// 0.1.0
+
+console.log(git.log());
+// [
+//   [
+//     '75bf4eea9aa1a7fd6505d0d0aa43105feafa92ef',
+//     'update pjson to include sync exec',
+//     '17 minutes ago',
+//     'kurttheviking'
+//   ],
+//   [
+//     '143120ac3ecc07aeae1462b372bb2033aa20c3ee',
+//     'Merge pull request #6 from shtylman/patch-1',
+//     '1 year, 2 months ago',
+//     'Thomas Blobaum'
+//   ],
+//   ...
+// ]
 
 ```
 
-# Methods
+You can also run these examples via `npm run examples` from within the project repo.
 
-``` js 
-var git = require('git-rev')
-```
 
-## .log(function (array) { ... })
-return the git log of `process.cwd()` as an array
-
-``` js
-git.log(function (array) {
-  console.log('log', array)
-  // [ [ 'aefdd946ea65c88f8aa003e46474d57ed5b291d1',
-  //     'add description',
-  //     '7 hours ago',
-  //     'Thomas Blobaum' ],
-  //   [ '1eb9a6c8633a5a47a47487f17b17ae545d0e26a8',
-  //     'first',
-  //     '7 hours ago',
-  //     'Thomas Blobaum' ],
-  //   [ '7f85b750b908d28bfeb13ad6dba47d9d604508f9',
-  //     'first commit',
-  //     '2 days ago',
-  //     'Thomas Blobaum' ] ]
-})
-```
-
-## .short(function (commit) { ... })
-return the result of `git rev-parse --short HEAD`
-
-## .long(function (commit) { ... })
-return the result of `git rev-parse HEAD`
-
-## .tag(function (tag) { ... })
-return the current tag
-
-## .branch(function (branch) { ... })
-return the current branch
-
-# Install
+## Install
 
 `npm install git-rev`
 
-# License
 
-(The MIT License)
+## Methods
 
-Copyright (c) 2012 Thomas Blobaum <tblobaum@gmail.com>
+``` js
+var git = require('git-rev-sync');
+```
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+### .log() => <Array: <Tuple>>
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
+return the git log of `process.cwd()` as an array; each array contains the long commit hash, commit message, fuzzy commit time, and user
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### .short() => <String>
+
+return the result of `git rev-parse --short HEAD`
+
+### .long() => <String>
+return the result of `git rev-parse HEAD`
+
+
+### .tag() => <String>
+return the current tag
+
+
+### .branch() => <String>
+return the current branch
+
+
+## Warning
+
+Not tested outside of a *nix system. See the [execSync module notes](https://github.com/mgutz/execSync#notes) on this topic.
+
+
+## License
+
+[MIT](https://github.com/kurttheviking/git-rev-sync/blob/master/LICENSE)

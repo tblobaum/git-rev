@@ -18,10 +18,9 @@
     }
   ],
   "dependencies": {
-    "exec-sync": "0.1.6"
+    "execSync": "1.0.2"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/kurttheviking/git-rev-sync",
   "licenses": [
     {
@@ -30,8 +29,8 @@
     }
   ],
   "main": "index.js",
-  "private": true,
   "scripts": {
+    "example": "node example/simple"
   },
   "repository": {
     "type": "git",
