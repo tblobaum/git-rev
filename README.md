@@ -54,24 +54,24 @@ You can also run these examples via: `npm run examples`
 var git = require('git-rev-sync');
 ```
 
-### .log() => <Array: <Tuple>>
+### .log() => &lt;Array: &lt;Tuple&gt;&gt;
 
 return the git log of `process.cwd()` as an array; each array contains the long commit hash, commit message, fuzzy commit time, and user
 
 
-### .short() => <String>
+### .short() => &lt;String&gt;
 
 return the result of `git rev-parse --short HEAD`
 
-### .long() => <String>
+### .long() => &lt;String&gt;
 return the result of `git rev-parse HEAD`
 
 
-### .tag() => <String>
+### .tag() => &lt;String&gt;
 return the current tag
 
 
-### .branch() => <String>
+### .branch() => &lt;String&gt;
 return the current branch
 
 
