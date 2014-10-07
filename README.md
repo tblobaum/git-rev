@@ -40,12 +40,12 @@ console.log(git.log());
 
 ```
 
-You can also run these examples via `npm run examples` from within the project repo.
+You can also run these examples via: `npm run examples`
 
 
 ## Install
 
-`npm install git-rev`
+`npm install git-rev-sync --save`
 
 
 ## Methods
