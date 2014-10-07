@@ -9,7 +9,7 @@ function _command (cmd) {
     throw new Error('failed to execute git-rev-sync command', result);
   }
 
-  return result.stdout;
+  return result.stdout.replace(/^\s+|\s+$/g, '');
 }
 
 
