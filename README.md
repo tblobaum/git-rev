@@ -1,5 +1,5 @@
-git-rev
-=======
+git-rev-sync
+============
 
 Synchronously get the current git commit hash, tag or branch
 
