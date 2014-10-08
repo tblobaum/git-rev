@@ -1,6 +1,6 @@
 {
   "name" : "git-rev",
-  "version" : "0.2.1",
+  "version" : "0.2.2",
   "description" : "get the current git commit hash, tag or branch in node",
   "main" : "index.js",
   "bin" : {},
