@@ -1,13 +1,14 @@
 var exec = require('child_process').exec
 
 function _command (cmd, cb) {
-  exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
+  exec(cmd, { cwd: exports.sourcedir }, function (err, stdout, stderr) {
     cb(stdout.split('\n').join(''))
   })
 }
 
-module.exports = { 
-    short : function (cb) { 
+var exports = {
+  sourcedir:__dirname,
+  short : function (cb) { 
       _command('git rev-parse --short HEAD', cb)
     }
   , long : function (cb) { 
@@ -31,3 +32,5 @@ module.exports = {
     });
   }
 }
+
+module.exports = exports;
