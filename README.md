@@ -27,6 +27,11 @@ git.tag(function (str) {
   // => 0.1.0
 })
 
+git.count(function (count) {
+  console.log('count', count)
+  // => 13
+})
+
 ```
 
 # Methods
@@ -67,6 +72,9 @@ return the current tag
 
 ## .branch(function (branch) { ... })
 return the current branch
+
+## .count(function (count) { ... })
+return the commit count
 
 # Install
 

@@ -25,4 +25,9 @@ module.exports = {
         cb(JSON.parse('[' + str + ']'))
       })
     }
+  , count : function(cb){ 
+    _command('git rev-list HEAD --count', function(count){
+      cb(count);
+    });
+  }
 }
