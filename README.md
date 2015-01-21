@@ -19,25 +19,10 @@ console.log(git.branch());
 // master
 
 console.log(git.tag());
-// 0.1.0
+// not implemented
 
 console.log(git.log());
-// [
-//   [
-//     '75bf4eea9aa1a7fd6505d0d0aa43105feafa92ef',
-//     'update pjson to include sync exec',
-//     '17 minutes ago',
-//     'kurttheviking'
-//   ],
-//   [
-//     '143120ac3ecc07aeae1462b372bb2033aa20c3ee',
-//     'Merge pull request #6 from shtylman/patch-1',
-//     '1 year, 2 months ago',
-//     'Thomas Blobaum'
-//   ],
-//   ...
-// ]
-
+// not implemented
 ```
 
 You can also run these examples via: `npm run examples`
@@ -73,11 +58,6 @@ return the current tag
 
 ### .branch() => &lt;String&gt;
 return the current branch
-
-
-## Warning
-
-Not tested outside of a *nix system. See the [execSync module notes](https://github.com/mgutz/execSync#notes) on this topic.
 
 
 ## License
