@@ -1,6 +1,7 @@
 'use strict';
 
-var sh = require('execSync');
+var fs = require('graceful-fs');
+var path = require('path')
 
 function _command (cmd) {
   var result = sh.exec(cmd);
@@ -12,26 +13,61 @@ function _command (cmd) {
   return result.stdout.replace(/^\s+|\s+$/g, '');
 }
 
+var SEP = path.sep
+function getGitDir(start) {
+  start = start || module.parent.filename
+  if (typeof start === 'string') {
+    start = start.split(SEP)
+  }
+  start.pop()
+  var testPath = path.resolve(start.join(SEP), '.git')
+  if (fs.existsSync(testPath)) {
+    return testPath
+  }
+  return getGitDir(start)
+}
+
+
+var branchRegEx = /^ref: refs\/heads\/(.*)\n/
+function branch () {
+  var gitDir = getGitDir()
+  var head = fs.readFileSync(path.resolve(gitDir, 'HEAD'), 'utf8')
+  var b = head.match(branchRegEx)
+
+  if (b) {
+    return b[1]
+  } else {
+    return 'Detatched: ' + head.trim()
+  }
+}
+
+function long () {
+  var b = branch()
+  if (/Detatched: /.test(b)) {
+    return b.substr(11)
+  } else {
+    var gitDir = getGitDir()
+    var ref = fs.readFileSync(path.resolve(gitDir, 'refs', 'heads', b), 'utf8')
+    return ref.trim()
+  }
+}
+
+function short () {
+  return long().substr(0,7)
+}
+
+function tag () {
+  throw new Error('not implemented')
+}
+
+function log () {
+  throw new Error('not implemented')
+}
 
 module.exports = {
-  short : function () {
-    return _command('git rev-parse --short HEAD');
-  },
-  long : function () {
-    return _command('git rev-parse HEAD');
-  },
-  branch : function () {
-    return _command('git rev-parse --abbrev-ref HEAD');
-  },
-  tag : function () {
-    return _command('git describe --always --tag --abbrev=0');
-  },
-  log : function () {
-    var out = _command('git log --no-color --pretty=format:' +
-      '\'[ "%H", "%s", "%cr", "%an" ],\' --abbrev-commit');
-
-    out = out.substr(0, out.length-1);
-
-    return JSON.parse('[' + out + ']');
-  }
+  short : short,
+  long : long,
+  branch : branch,
+  tag : tag,
+  log : log
 }

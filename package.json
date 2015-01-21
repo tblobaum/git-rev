@@ -12,14 +12,16 @@
       "url": "https://github.com/kurttheviking"
     },
     {
+      "name": "jden",
+      "email": "jason@denizac.org",
+      "url": "http://jden.us"
+    },
+    {
       "name": "Thomas Blobaum",
       "email": "tblobaum@gmail.com",
       "url": "https://github.com/tblobaum"
     }
   ],
-  "dependencies": {
-    "execSync": "1.0.2"
-  },
   "description": "Synchronously get the current git commit hash, tag, or branch",
   "devDependencies": {},
   "homepage": "https://github.com/kurttheviking/git-rev-sync",
@@ -36,5 +38,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:kurttheviking/git-rev-sync.git"
+  },
+  "dependencies": {
+    "graceful-fs": "^3.0.5"
   }
 }
