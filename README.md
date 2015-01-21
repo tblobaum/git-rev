@@ -39,15 +39,15 @@ You can also run these examples via: `npm run examples`
 var git = require('git-rev-sync');
 ```
 
-#### short() &rarr; &lt;String&gt;
+#### git.short() &rarr; &lt;String&gt;
 
 return the result of `git rev-parse --short HEAD`
 
-#### long() &rarr; &lt;String&gt;
+#### git.long() &rarr; &lt;String&gt;
 
 return the result of `git rev-parse HEAD`
 
-#### branch() &rarr; &lt;String&gt;
+#### git.branch() &rarr; &lt;String&gt;
 
 return the current branch
 
