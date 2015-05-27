@@ -47,7 +47,19 @@ function long () {
     return b.substr(11)
   } else {
     var gitDir = getGitDir()
-    var ref = fs.readFileSync(path.resolve(gitDir, 'refs', 'heads', b), 'utf8')
+    var refsFilePath = path.resolve(gitDir, 'refs', 'heads', b)
+    var ref;
+    if (fs.existsSync(refsFilePath)) {
+      ref = fs.readFileSync(refsFilePath, 'utf8')
+    } else {
+      // If there isn't an entry in /refs/heads for this branch, it may be that
+      // the ref is stored in the packfile (.git/packed-refs). Fall back to
+      // looking up the hash here.
+      var refToFind = path.join('refs', 'heads', b)
+      var packfileContents = fs.readFileSync(path.resolve(gitDir, 'packed-refs'), 'utf8')
+      var packfileRegex = new RegExp('(.*) ' + refToFind)
+      ref = packfileRegex.exec(packfileContents)[1]
+    }
     return ref.trim()
   }
 }
