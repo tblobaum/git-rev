@@ -12,7 +12,7 @@
       "url": "https://github.com/kurttheviking"
     },
     {
-      "name": "jden",
+      "name": "Jason Denizac",
       "email": "jason@denizac.org",
       "url": "http://jden.us"
     },
@@ -40,6 +40,6 @@
     "url": "git@github.com:kurttheviking/git-rev-sync.git"
   },
   "dependencies": {
-    "graceful-fs": "^3.0.5"
+    "graceful-fs": "3.0.8"
   }
 }
