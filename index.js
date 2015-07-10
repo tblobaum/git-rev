@@ -2,6 +2,10 @@ var exec = require('child_process').exec
 
 function _command (cmd, cb) {
   exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
+    if (err !== null) {
+		console.log('[NODE-GIT-REV] exec error: ' + err);
+		cb(null);
+	}
     cb(stdout.slice(0, -1));
   })
 }
@@ -21,17 +25,19 @@ module.exports = {
     }
   , log : function (cb) {
       _command('git log --no-color --pretty=format:\'%H  |  %cr  |  %an  |  %s\' --abbrev-commit', function (str) {
-        var logs = [];
-        (str.split('\n')).forEach(function(line, line_idx) {
-            var parsed_line = line.split('  |  ');
-            logs.push([
-                parsed_line[0],
-                parsed_line[3],
-                parsed_line[1],
-                parsed_line[2]
-            ]);
-        });
-        cb(logs)
-      })
-    }
+      	var logs = [];
+	  	if ( str !== null ) {
+      	  (str.split('\n')).forEach(function(line, line_idx) {
+      	      var parsed_line = line.split('  |  ');
+      	      logs.push([
+      	          parsed_line[0],
+      	          parsed_line[3],
+      	          parsed_line[1],
+      	          parsed_line[2]
+      	      ]);
+      	  });
+      	};
+	  	cb(logs);
+      });
+   }
 }
