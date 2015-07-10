@@ -1,7 +1,7 @@
 var exec = require('child_process').exec
 
 function _command (cmd, cb) {
-  exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
+  exec(cmd, { cwd: __dirname, maxBuffer: 1024 * 1024 }, function (err, stdout, stderr) {
     if (err !== null) {
 		console.log('[NODE-GIT-REV] exec error: ' + err);
 		cb(null);
