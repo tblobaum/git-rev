@@ -27,6 +27,11 @@ git.tag(function (str) {
   // => 0.1.0
 })
 
+git.message(function (str) {
+  console.log('message', str)
+  // => initial commit
+})
+
 ```
 
 # Methods
@@ -67,6 +72,9 @@ return the current tag
 
 ## .branch(function (branch) { ... })
 return the current branch
+
+## .message(function (message) { ... })
+return the current commit message
 
 # Install
 
