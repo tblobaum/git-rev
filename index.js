@@ -1,8 +1,9 @@
 var exec = require('child_process').exec
 
-function _command (cmd, cb) {
+function _command (cmd, cb, cnl) {
+  cnl = cnl === undefined ? true : cnl;
   exec(cmd, { cwd: __dirname }, function (err, stdout, stderr) {
-    cb(stdout.split('\n').join(''))
+    cb(cnl ? stdout.split('\n').join('') : stdout)
   })
 }
 
@@ -24,5 +25,8 @@ module.exports = {
         str = str.substr(0, str.length-1)
         cb(JSON.parse('[' + str + ']'))
       })
+    }
+  , message : function (cb) { 
+      _command('git log -1 --pretty=%B', cb, false)
     }
 }

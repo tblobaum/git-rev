@@ -35,3 +35,11 @@ git.log(function (array) {
   //     '2 days ago',
   //     'Thomas Blobaum' ] ]
 })
+
+git.message(function (str) {
+  console.log('message', str)
+  // => Merge pull request #6 from shtylman/patch-1
+  //
+  //    fix for launching outside of project dir
+  //
+})
