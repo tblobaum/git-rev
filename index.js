@@ -24,6 +24,11 @@ function getGitDir(start) {
   if (fs.existsSync(testPath)) {
     return testPath
   }
+
+  if (!start.length) {
+    throw new Error('No Git repository found');
+  }
+
   return getGitDir(start)
 }
 
