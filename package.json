@@ -20,10 +20,14 @@
       "name": "Thomas Blobaum",
       "email": "tblobaum@gmail.com",
       "url": "https://github.com/tblobaum"
+    },
+    {
+      "name": "Hendrik Reker",
+      "email": "reker.opensource@gmail.com",
+      "url": "https://github.com/reker-"
     }
   ],
   "description": "Synchronously get the current git commit hash, tag, or branch",
-  "devDependencies": {},
   "homepage": "https://github.com/kurttheviking/git-rev-sync",
   "license": "MIT",
   "main": "index.js",
@@ -36,5 +40,6 @@
   },
   "dependencies": {
     "graceful-fs": "3.0.8"
-  }
+  },
+  "devDependencies": {}
 }
