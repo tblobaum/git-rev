@@ -40,7 +40,8 @@
     "url": "git@github.com:kurttheviking/git-rev-sync.git"
   },
   "dependencies": {
-    "graceful-fs": "4.1.2"
+    "graceful-fs": "4.1.2",
+    "shelljs": "0.5.1"
   },
   "devDependencies": {}
 }
