@@ -1,6 +1,8 @@
 git-rev-sync
 ============
 
+[![Build Status](https://travis-ci.org/kurttheviking/git-rev-sync.svg?branch=master)](https://travis-ci.org/kurttheviking/git-rev-sync.svg?branch=master)
+
 Synchronously get the current git commit hash, tag, branch or commit message. Forked from [git-rev](https://github.com/tblobaum/git-rev).
 
 
