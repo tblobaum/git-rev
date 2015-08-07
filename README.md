@@ -58,7 +58,7 @@ return the current branch
 
 #### git.message() &rarr; &lt;String&gt;
 
-return the current commit message
+return the current commit message; this method will fail if the `git` command is not found in your `PATH`
 
 
 ## License

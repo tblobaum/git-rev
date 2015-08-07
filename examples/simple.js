@@ -10,10 +10,3 @@ console.log('git.long() => ' + git.long());
 
 console.log('git.branch() => ' + git.branch());
 // master
-
-// console.log('git.tag() => ', git.tag());
-
-// console.log('git.log() => ', git.log());
-
-console.log('git.message() => ' + git.message());
-// initial commit
