@@ -32,7 +32,8 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "examples": "node example/simple"
+    "examples": "node examples/simple",
+    "test": "node tests/index"
   },
   "repository": {
     "type": "git",
