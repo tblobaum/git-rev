@@ -36,7 +36,7 @@ You can also run these examples via: `npm run examples`
 `npm install git-rev-sync --save`
 
 
-## Methods
+## API
 
 ``` js
 var git = require('git-rev-sync');
@@ -57,6 +57,7 @@ return the current branch
 #### git.message() &rarr; &lt;String&gt;
 
 return the current commit message
+
 
 ## License
 
