@@ -1,7 +1,7 @@
 git-rev-sync
 ============
 
-Synchronously get the current git commit hash, tag, or branch. Forked from [git-rev](https://github.com/tblobaum/git-rev).
+Synchronously get the current git commit hash, tag, branch or commit message. Forked from [git-rev](https://github.com/tblobaum/git-rev).
 
 
 ## Example
@@ -23,6 +23,9 @@ console.log(git.tag());
 
 console.log(git.log());
 // not implemented
+
+console.log(git.message());
+// initial commit
 ```
 
 You can also run these examples via: `npm run examples`
@@ -51,6 +54,9 @@ return the result of `git rev-parse HEAD`
 
 return the current branch
 
+#### git.message() &rarr; &lt;String&gt;
+
+return the current commit message
 
 ## License
 

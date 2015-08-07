@@ -1,16 +1,17 @@
 'use strict';
 
 var fs = require('graceful-fs');
-var path = require('path')
+var path = require('path');
+var child_process = require('child_process');
 
-function _command (cmd) {
-  var result = sh.exec(cmd);
-
-  if (result.code !== 0) {
-    throw new Error('failed to execute git-rev-sync command', result);
+function _command (cmd, args, path) {
+  var result = child_process.spawnSync(cmd, args);
+  
+  if (result.status !== 0) {
+    throw new Error('failed to execute git-rev-sync command', result.stderr);
   }
 
-  return result.stdout.replace(/^\s+|\s+$/g, '');
+  return result.stdout.toString('utf8').replace(/^\s+|\s+$/g, '');
 }
 
 var SEP = path.sep
@@ -76,10 +77,15 @@ function log () {
   throw new Error('not implemented')
 }
 
+function message() {
+  return _command("git", ["log", "-1", "--pretty=%B"], getGitDir())
+}
+
 module.exports = {
   short : short,
   long : long,
   branch : branch,
   tag : tag,
-  log : log
+  log : log,
+  message : message
 }
