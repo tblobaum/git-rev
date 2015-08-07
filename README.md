@@ -18,14 +18,14 @@ console.log(git.long());
 console.log(git.branch());
 // master
 
+console.log(git.message());
+// initial commit
+
 console.log(git.tag());
 // not implemented
 
 console.log(git.log());
 // not implemented
-
-console.log(git.message());
-// initial commit
 ```
 
 You can also run these examples via: `npm run examples`

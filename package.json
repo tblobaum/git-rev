@@ -32,14 +32,14 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "example": "node example/simple"
+    "examples": "node example/simple"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:kurttheviking/git-rev-sync.git"
   },
   "dependencies": {
-    "graceful-fs": "3.0.8"
+    "graceful-fs": "4.1.2"
   },
   "devDependencies": {}
 }
