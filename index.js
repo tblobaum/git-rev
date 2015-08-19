@@ -19,6 +19,9 @@ module.exports = {
   , tag : function (cb) { 
       _command('git describe --always --tag --abbrev=0', cb)
     }
+  , date : function (cb) { 
+      _command('git show -s --format=%ci', cb)
+    }
   , log : function (cb) { 
       _command('git log --no-color --pretty=format:\'[ "%H", "%s", "%cr", "%an" ],\' --abbrev-commit', function (str) {
         str = str.substr(0, str.length-1)

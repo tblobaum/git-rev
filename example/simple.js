@@ -20,6 +20,11 @@ git.tag(function (str) {
   // => 0.1.0
 })
 
+git.date(function (str) {
+  console.log('date', str)
+  // => 2015-08-18 17:15: 48 +0100
+})
+
 git.log(function (array) {
   console.log('log', array)
   // [ [ 'aefdd946ea65c88f8aa003e46474d57ed5b291d1',

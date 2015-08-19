@@ -27,6 +27,11 @@ git.tag(function (str) {
   // => 0.1.0
 })
 
+git.date(function (str) {
+  console.log('date', str)
+  // => 2015-08-18 17:15: 48 +0100
+})
+
 ```
 
 # Methods
@@ -67,6 +72,9 @@ return the current tag
 
 ## .branch(function (branch) { ... })
 return the current branch
+
+## .date(function (date) { ... })
+return the date of the current commit
 
 # Install
 
