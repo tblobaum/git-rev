@@ -24,7 +24,7 @@ console.log(git.message());
 // initial commit
 
 console.log(git.tag());
-// not implemented
+// v1.3.1
 
 console.log(git.log());
 // not implemented
@@ -56,10 +56,13 @@ return the result of `git rev-parse HEAD`
 
 return the current branch
 
+#### git.tag() &rarr; &lt;String&gt;
+
+return the current tag
+
 #### git.message() &rarr; &lt;String&gt;
 
 return the current commit message; this method will fail if the `git` command is not found in your `PATH`
-
 
 ## License
 
