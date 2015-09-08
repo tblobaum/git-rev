@@ -97,7 +97,7 @@ function message() {
 }
 
 function tag() {
-  throw new Error('not implemented')
+  return _command('git', ['describe', '--always', '--tag', '--abbrev=0']);
 }
 
 function log() {

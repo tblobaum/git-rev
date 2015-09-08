@@ -15,4 +15,7 @@ assert.equal(!!result.length, true, 'branch() returns a string with non-zero len
 result = git.message();
 assert.equal(!!result.length, true, 'message() returns a string with non-zero length');
 
+result = git.tag();
+assert.equal(!!result.length, true, 'tag() returns a string with non-zero length');
+
 console.log('tests passed');
