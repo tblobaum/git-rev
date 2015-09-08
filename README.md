@@ -58,7 +58,7 @@ return the current branch
 
 #### git.tag() &rarr; &lt;String&gt;
 
-return the current tag
+return the current tag; this method will fail if the `git` command is not found in your `PATH`
 
 #### git.message() &rarr; &lt;String&gt;
 
