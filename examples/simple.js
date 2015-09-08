@@ -10,3 +10,6 @@ console.log('git.long() => ' + git.long());
 
 console.log('git.branch() => ' + git.branch());
 // master
+
+console.log('git.tag() => ' + git.tag());
+// master
