@@ -23,21 +23,25 @@ module.exports = {
   , tag : function (cb) {
       _command('git describe --always --tag --abbrev=0', cb)
     }
-  , log : function (cb) {
-      _command('git log --no-color --pretty=format:\'%H  |  %cr  |  %an  |  %s\' --abbrev-commit', function (str) {
-      	var logs = [];
-	  	if ( str !== null ) {
-      	  (str.split('\n')).forEach(function(line, line_idx) {
-      	      var parsed_line = line.split('  |  ');
-      	      logs.push([
-      	          parsed_line[0],
-      	          parsed_line[3],
-      	          parsed_line[1],
-      	          parsed_line[2]
-      	      ]);
-      	  });
-      	};
-	  	cb(logs);
+  , log : function (cb, limit) {
+      var cmd_string = 'git log --no-color --pretty=format:\"%H  |  %cr  |  %an  |  %s\" --abbrev-commit';
+      if(limit != null && !isNaN(limit)) {
+         cmd_string += ' -'+limit;
+      }
+      _command(cmd_string, function (str) {
+         var logs = [];
+	 if ( str !== null ) {
+      	    (str.split('\n')).forEach(function(line, line_idx) {
+      	       var parsed_line = line.split('  |  ');
+      	       logs.push([
+      	           parsed_line[0],
+      	           parsed_line[3],
+      	           parsed_line[1],
+      	           parsed_line[2]
+      	       ]);
+      	    });
+      	 };
+	 cb(logs);
       });
    }
 }
