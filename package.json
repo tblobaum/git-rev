@@ -1,25 +1,47 @@
 {
-  "name" : "git-rev",
-  "version" : "0.2.1",
-  "description" : "get the current git commit hash, tag or branch in node",
-  "main" : "index.js",
-  "bin" : {},
-  "directories" : {
-    "example" : "example"
+  "name": "git-rev-sync",
+  "version": "1.4.0",
+  "author": "kurttheviking",
+  "bugs": {
+    "url": "https://github.com/kurttheviking/git-rev-sync/issues"
   },
-  "dependencies" : {},
-  "devDependencies" : {},
-  "scripts" : {},
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/tblobaum/git-rev.git"
+  "contributors": [
+    {
+      "name": "Kurt Ericson",
+      "email": "kurttheviking@outlook.com",
+      "url": "https://github.com/kurttheviking"
+    },
+    {
+      "name": "Jason Denizac",
+      "email": "jason@denizac.org",
+      "url": "http://jden.us"
+    },
+    {
+      "name": "Thomas Blobaum",
+      "email": "tblobaum@gmail.com",
+      "url": "https://github.com/tblobaum"
+    },
+    {
+      "name": "Hendrik Reker",
+      "email": "reker.opensource@gmail.com",
+      "url": "https://github.com/reker-"
+    }
+  ],
+  "description": "Synchronously get the current git commit hash, tag, or branch",
+  "homepage": "https://github.com/kurttheviking/git-rev-sync",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "examples": "node examples/simple",
+    "test": "node tests/index"
   },
-  "homepage" : "https://github.com/tblobaum/git-rev",
-  "keywords" : [ ],
-  "author" : {
-    "name" : "Thomas Blobaum",
-    "email" : "tblobaum@gmail.com",
-    "url" : "https://github.com/tblobaum/"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kurttheviking/git-rev-sync.git"
   },
-  "license" : "MIT"
+  "dependencies": {
+    "graceful-fs": "4.1.2",
+    "shelljs": "0.5.1"
+  },
+  "devDependencies": {}
 }

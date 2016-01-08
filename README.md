@@ -1,98 +1,69 @@
-# git-rev
+git-rev-sync
+============
 
-access git revision state in node
+[![Build Status](https://travis-ci.org/kurttheviking/git-rev-sync.svg?branch=master)](https://travis-ci.org/kurttheviking/git-rev-sync.svg?branch=master)
 
-# Example
+Synchronously get the current git commit hash, tag, branch or commit message. Forked from [git-rev](https://github.com/tblobaum/git-rev).
+
+
+## Example
+
+```js
+var git = require('git-rev-sync');
+
+console.log(git.short());
+// 75bf4ee
+
+console.log(git.long());
+// 75bf4eea9aa1a7fd6505d0d0aa43105feafa92ef
+
+console.log(git.branch());
+// master
+
+console.log(git.message());
+// initial commit
+
+console.log(git.tag());
+// v1.3.1
+
+console.log(git.log());
+// not implemented
+```
+
+You can also run these examples via: `npm run examples`
+
+
+## Install
+
+`npm install git-rev-sync --save`
+
+
+## API
 
 ``` js
-var git = require('git-rev')
-
-git.short(function (str) {
-  console.log('short', str)
-  // => aefdd94
-})
-
-git.long(function (str) {
-  console.log('long', str)
-  // => aefdd946ea65c88f8aa003e46474d57ed5b291d1
-})
-
-git.branch(function (str) {
-  console.log('branch', str)
-  // => master
-})
-
-git.tag(function (str) {
-  console.log('tag', str)
-  // => 0.1.0
-})
-
+var git = require('git-rev-sync');
 ```
 
-# Methods
+#### git.short() &rarr; &lt;String&gt;
 
-``` js 
-var git = require('git-rev')
-```
-
-## .log(function (array) { ... })
-return the git log of `process.cwd()` as an array
-
-``` js
-git.log(function (array) {
-  console.log('log', array)
-  // [ [ 'aefdd946ea65c88f8aa003e46474d57ed5b291d1',
-  //     'add description',
-  //     '7 hours ago',
-  //     'Thomas Blobaum' ],
-  //   [ '1eb9a6c8633a5a47a47487f17b17ae545d0e26a8',
-  //     'first',
-  //     '7 hours ago',
-  //     'Thomas Blobaum' ],
-  //   [ '7f85b750b908d28bfeb13ad6dba47d9d604508f9',
-  //     'first commit',
-  //     '2 days ago',
-  //     'Thomas Blobaum' ] ]
-})
-```
-
-## .short(function (commit) { ... })
 return the result of `git rev-parse --short HEAD`
 
-## .long(function (commit) { ... })
+#### git.long() &rarr; &lt;String&gt;
+
 return the result of `git rev-parse HEAD`
 
-## .tag(function (tag) { ... })
-return the current tag
+#### git.branch() &rarr; &lt;String&gt;
 
-## .branch(function (branch) { ... })
 return the current branch
 
-# Install
+#### git.tag() &rarr; &lt;String&gt;
 
-`npm install git-rev`
+return the current tag; this method will fail if the `git` command is not found in your `PATH`
 
-# License
+#### git.message() &rarr; &lt;String&gt;
 
-(The MIT License)
+return the current commit message; this method will fail if the `git` command is not found in your `PATH`
 
-Copyright (c) 2012 Thomas Blobaum <tblobaum@gmail.com>
+## License
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](https://github.com/kurttheviking/git-rev-sync/blob/master/LICENSE)
