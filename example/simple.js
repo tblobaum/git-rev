@@ -35,3 +35,6 @@ git.log(function (array) {
   //     '2 days ago',
   //     'Thomas Blobaum' ] ]
 })
+git.exactTag(function(str){
+  console.log('exactTag',str)
+})
