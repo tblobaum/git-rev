@@ -35,4 +35,13 @@ module.exports = {
 
     })
   }
+  , lastCommitMessage: function(cb) {
+    _command('git log -1 --pretty=%B', function(str) {
+      if(str) {
+        cb(str)
+      } else {
+        cb(undefined)
+      }
+    })
+  }
 }
